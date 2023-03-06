@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+
+    /* Colors */
+    --color-primary: #FF6A88;
+    --color-black: #3a3a3a;
+    --color-black-light: #858585;
+    --color-white: #fff;
+
+    /* Sizes */
+    --viewport-height: 100vh;
+    --container-widht: 800px;
+    --container-medium-widht: 500px;
+
+    /* Border, gap and padding */
+    --border-radius-large: 1.875rem;
+    --border-radius-medium: 1.25rem;
+    --border-radius-small: 0.625rem;
+    --padding-large: 2.5rem;
+    --padding-medium: 1.25rem;
+    --padding-small: 0.625rem;
+    --gap-big: 5.625rem;
+    --gap-large: 1.25rem;
+    --gap-medium: 0.9375rem;
+    --gap-small: 0.625rem;
+
+    /* Gradients */
+    --gradient-background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    --gradient-line: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    --gradient-button-primary: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    --gradient-button-secundary: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: var(--viewport-height);
+    color: var(--color-black-light);
+}
+
+a {
+    color: var(--color-primary);
+}
+
+img {
+    max-width: 100%;
+}
+
+strong {
+    color: var(--color-black);
+}
+
+/* Helpers */
+.d-block {
+    display: block;
+}
+
+/* Application styles */
+
+.main {    
+    display: grid;
+    place-content: center;
+    min-height: var(--viewport-height);
+    background-image: var(--gradient-background);
+    padding: 100px var(--padding-medium);
+}
+
+.profile {
+    display: grid;
+    margin: 0 auto;
+    box-shadow: -2px 17px 22px -11px rgba(196, 196, 196, 0.38);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-large);
+    max-width: var(--container-medium-widht);
+    padding: var(--padding-large);
+    gap: var(--gap-large);
+}
+
+.profile-header {
+    position: relative;
+    padding-bottom: var(--padding-large);
+}
+
+.profile-header::after {
+    content: "";
+    position: absolute;
+    height: 0.3125rem;
+    width: 50%;
+    bottom: 0;
+    background-image: var(--gradient-line);   
+}
+
+.profile-title {
+    font-size: 2.25em;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.profile-text {
+    padding-block: var(--padding-large);
+}
+
+.profile-left {
+    order: 2;
+}
+
+.profile-right{
+    display: flex;
+    justify-content: center;
+    order: 1;
+}
+
+.profile-photo img {
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 8px solid white;
+    margin-top: -200px;
+}
+
+.profile-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+}
+
+/* Button styles */
+.button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: .2s all ease-in;
+    justify-content: space-between;
+    border-radius: var(--border-radius-small);
+    color: var(--color-white);
+    padding: calc(var(--padding-medium) - 5px) var(--padding-medium);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button svg {
+    max-width: 30px;
+}
+
+.button-primary {
+    background-image: var(--gradient-button-primary);
+}
+
+.button-secundary {
+    background-image: var(--gradient-button-secundary);;
+}
+
+.socials {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: var(--gap-small);
+}
+
+.socials-item a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s all ease-in;
+    background-color: var(--color-white);
+}
+
+.socials-item a:hover {
+    transform: translateY(-2px);
+    background-color: var(--color-primary);
+}
+
+.socials-item a svg {
+    max-width: 30px;
+    color: var(--color-black);
+}
+
+.socials-item a:hover svg {
+    transform: translateY(-2px);
+    color: var(--color-white);
+}
+
+/* Media query */
+
+@media (min-width: 768px) {
+
+    .main {
+        padding: var(--padding-large);
+    }
+
+    .profile {        
+        grid-template-columns: repeat(2, 1fr);
+        max-width: var(--container-widht);
+        gap: var(--gap-big);
+    }
+
+    .profile-photo img {
+        border-radius: var(--border-radius-medium);
+        width: initial;
+        height: initial;
+        margin-top: inherit;
+        border: 0;
+    }
+
+    .profile-left {
+        order: initial;
+    }
+    
+    .profile-right{
+        order: initial;
+    }
+
+}
